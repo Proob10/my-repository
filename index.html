@@ -87,25 +87,56 @@
         height: 250px;
       }
     }
+
   </style>
 </head>
 <body>
 
   <div class="container">
 
-    <!-- Первый блок: Алыкул Осмонов ырлары -->
+    <!-- Блок 1: Алыкул Осмонов -->
     <div class="block-wrapper">
       <h2 class="block-title">Алыкул Осмонов ырлары</h2>
-      <div class="block" id="blockAlykul">
-        <!-- Видео подгружаются автоматически -->
+      <div class="block">
+        <div class="video-card" onclick="playVideo('u0RetgSQAII')">
+          <img src="https://img.youtube.com/vi/u0RetgSQAII/hqdefault.jpg" alt="Алыкул Осмонов — Сүйүү ырлары">
+          <div>Алыкул Осмонов — Сүйүү ырлары</div>
+        </div>
+        <div class="video-card" onclick="playVideo('4BFlmfR9zrk')">
+          <img src="https://img.youtube.com/vi/4BFlmfR9zrk/hqdefault.jpg" alt="Алыкул Осмонов — Күндүн ырлары">
+          <div>Алыкул Осмонов — Күндүн ырлары</div>
+        </div>
+        <div class="video-card" onclick="playVideo('vJS5-RM7Wbw')">
+          <img src="https://img.youtube.com/vi/vJS5-RM7Wbw/hqdefault.jpg" alt="Алыкул Осмонов — Түнкү ойлор">
+          <div>Алыкул Осмонов — Түнкү ойлор</div>
+        </div>
+        <div class="video-card" onclick="playVideo('AtV4snvBgWE')">
+          <img src="https://img.youtube.com/vi/AtV4snvBgWE/hqdefault.jpg" alt="Алыкул Осмонов — Мекеним кыргызстан">
+          <div>Алыкул Осмонов — Мекеним кыргызстан</div>
+        </div>
       </div>
     </div>
 
-    <!-- Второй блок: Чынгыз Айтматов аудио китептери -->
+    <!-- Блок 2: Чынгыз Айтматов -->
     <div class="block-wrapper">
-      <h2 class="block-title">Чынгыз Айтматов аудио китептери</h2>
-      <div class="block" id="blockAytmatov">
-        <!-- Видео подгружаются автоматически -->
+      <h2 class="block-title">Чынгыз Айтматов</h2>
+      <div class="block">
+        <div class="video-card" onclick="playVideo('-VGiazFAxb8')">
+          <img src="https://img.youtube.com/vi/-VGiazFAxb8/hqdefault.jpg" alt="Чынгыз Айтматов - Кылым карытар бир күн">
+          <div>Чынгыз Айтматов - Кылым карытар бир күн</div>
+        </div>
+        <div class="video-card" onclick="playVideo('gaK1s-agCNE')">
+          <img src="https://img.youtube.com/vi/gaK1s-agCNE/hqdefault.jpg" alt="Чынгыз Айтматов - Жамийла">
+          <div>Чынгыз Айтматов - Жамийла</div>
+        </div>
+        <div class="video-card" onclick="playVideo('_kDLxb3D6dQ')">
+          <img src="https://img.youtube.com/vi/_kDLxb3D6dQ/hqdefault.jpg" alt="Чынгыз Айтматов - Балалыгым">
+          <div>Чынгыз Айтматов - Балалыгым</div>
+        </div>
+        <div class="video-card" onclick="playVideo('WqT7oRt1_N8')">
+          <img src="https://img.youtube.com/vi/WqT7oRt1_N8/hqdefault.jpg" alt="Чынгыз Айтматов - Ак кеме">
+          <div>Чынгыз Айтматов - Ак кеме</div>
+        </div>
       </div>
     </div>
 
@@ -116,45 +147,10 @@
   </div>
 
   <script>
-    const apiKey = "ВАШ_API_КЛЮЧ"; // Вставь сюда свой YouTube API ключ
-
-    const videoBlocks = {
-      blockAlykul: ["AOuj_1hr264", "xUqTq9UPnnk", "G2seyNojp8M", "GJKPy7FGR3U"],
-      blockAytmatov: ["gaK1s-agCNE", "yL8EMBMxjCA", "RJNZJZOEH5A", "Z4T_E_yuWdY"]
-    };
-
-    async function fetchVideoTitle(id) {
-      const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${apiKey}`);
-      const data = await response.json();
-      if (data.items && data.items.length > 0) {
-        return data.items[0].snippet.title;
-      }
-      return "Нет названия";
-    }
-
-    async function loadVideos() {
-      for (const [blockId, ids] of Object.entries(videoBlocks)) {
-        const container = document.getElementById(blockId);
-        for (const id of ids) {
-          const title = await fetchVideoTitle(id);
-          const card = document.createElement("div");
-          card.className = "video-card";
-          card.onclick = () => playVideo(id);
-          card.innerHTML = `
-            <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${title}">
-            <div>${title}</div>
-          `;
-          container.appendChild(card);
-        }
-      }
-    }
-
     function playVideo(id) {
       document.getElementById('videoPlayer').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
       window.scrollTo({ top: document.getElementById('videoPlayer').offsetTop - 20, behavior: 'smooth' });
     }
-
-    loadVideos();
   </script>
 
 </body>

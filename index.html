@@ -1,169 +1,161 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-	<title>be1.ru</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мини-сайт с видео</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .block-wrapper {
+      flex: 1 1 400px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .block-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 10px;
+      border-left: 5px solid #ff0000;
+      padding-left: 10px;
+    }
+
+    .block {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .video-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    .video-card img {
+      width: 100%;
+      display: block;
+    }
+    .video-card div {
+      padding: 6px;
+      font-weight: bold;
+      font-size: 13px;
+      text-align: center;
+      color: #111;
+    }
+
+    .player {
+      margin-top: 30px;
+      text-align: center;
+      width: 100%;
+    }
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+      }
+      iframe {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-<p>&lt;!DOCTYPE html&gt;<br />
-&lt;html lang=&quot;ru&quot;&gt;<br />
-&lt;head&gt;<br />
-&nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;<br />
-&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br />
-&nbsp; &lt;title&gt;Мини-сайт с видео&lt;/title&gt;<br />
-&nbsp; &lt;style&gt;<br />
-&nbsp; &nbsp; body {<br />
-&nbsp; &nbsp; &nbsp; font-family: &#39;Arial&#39;, sans-serif;<br />
-&nbsp; &nbsp; &nbsp; background: #f0f0f0;<br />
-&nbsp; &nbsp; &nbsp; margin: 0;<br />
-&nbsp; &nbsp; &nbsp; padding: 20px;<br />
-&nbsp; &nbsp; }</p>
 
-<p>&nbsp; &nbsp; .container {<br />
-&nbsp; &nbsp; &nbsp; display: flex;<br />
-&nbsp; &nbsp; &nbsp; flex-wrap: wrap;<br />
-&nbsp; &nbsp; &nbsp; gap: 20px;<br />
-&nbsp; &nbsp; }</p>
+  <div class="container">
 
-<p>&nbsp; &nbsp; .block-wrapper {<br />
-&nbsp; &nbsp; &nbsp; flex: 1 1 400px;<br />
-&nbsp; &nbsp; &nbsp; background: #fff;<br />
-&nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
-&nbsp; &nbsp; &nbsp; padding: 15px;<br />
-&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 10px rgba(0,0,0,0.1);<br />
-&nbsp; &nbsp; }</p>
+    <!-- Первый блок: Алыкул Осмонов ырлары -->
+    <div class="block-wrapper">
+      <h2 class="block-title">Алыкул Осмонов ырлары</h2>
+      <div class="block" id="blockAlykul">
+        <!-- Видео подгружаются автоматически -->
+      </div>
+    </div>
 
-<p>&nbsp; &nbsp; .block-title {<br />
-&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
-&nbsp; &nbsp; &nbsp; font-weight: bold;<br />
-&nbsp; &nbsp; &nbsp; color: #222;<br />
-&nbsp; &nbsp; &nbsp; margin-bottom: 10px;<br />
-&nbsp; &nbsp; &nbsp; border-left: 5px solid #ff0000;<br />
-&nbsp; &nbsp; &nbsp; padding-left: 10px;<br />
-&nbsp; &nbsp; }</p>
+    <!-- Второй блок: Чынгыз Айтматов аудио китептери -->
+    <div class="block-wrapper">
+      <h2 class="block-title">Чынгыз Айтматов аудио китептери</h2>
+      <div class="block" id="blockAytmatov">
+        <!-- Видео подгружаются автоматически -->
+      </div>
+    </div>
 
-<p>&nbsp; &nbsp; .block {<br />
-&nbsp; &nbsp; &nbsp; display: grid;<br />
-&nbsp; &nbsp; &nbsp; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));<br />
-&nbsp; &nbsp; &nbsp; gap: 10px;<br />
-&nbsp; &nbsp; }</p>
+  </div>
 
-<p>&nbsp; &nbsp; .video-card {<br />
-&nbsp; &nbsp; &nbsp; background: #fff;<br />
-&nbsp; &nbsp; &nbsp; border-radius: 10px;<br />
-&nbsp; &nbsp; &nbsp; box-shadow: 0 3px 6px rgba(0,0,0,0.15);<br />
-&nbsp; &nbsp; &nbsp; overflow: hidden;<br />
-&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
-&nbsp; &nbsp; &nbsp; transition: transform 0.3s, box-shadow 0.3s;<br />
-&nbsp; &nbsp; }<br />
-&nbsp; &nbsp; .video-card:hover {<br />
-&nbsp; &nbsp; &nbsp; transform: translateY(-5px);<br />
-&nbsp; &nbsp; &nbsp; box-shadow: 0 8px 15px rgba(0,0,0,0.2);<br />
-&nbsp; &nbsp; }<br />
-&nbsp; &nbsp; .video-card img {<br />
-&nbsp; &nbsp; &nbsp; width: 100%;<br />
-&nbsp; &nbsp; &nbsp; display: block;<br />
-&nbsp; &nbsp; }<br />
-&nbsp; &nbsp; .video-card div {<br />
-&nbsp; &nbsp; &nbsp; padding: 6px;<br />
-&nbsp; &nbsp; &nbsp; font-weight: bold;<br />
-&nbsp; &nbsp; &nbsp; font-size: 13px;<br />
-&nbsp; &nbsp; &nbsp; text-align: center;<br />
-&nbsp; &nbsp; &nbsp; color: #111;<br />
-&nbsp; &nbsp; }</p>
+  <div class="player">
+    <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+  </div>
 
-<p>&nbsp; &nbsp; .player {<br />
-&nbsp; &nbsp; &nbsp; margin-top: 30px;<br />
-&nbsp; &nbsp; &nbsp; text-align: center;<br />
-&nbsp; &nbsp; &nbsp; width: 100%;<br />
-&nbsp; &nbsp; }<br />
-&nbsp; &nbsp; iframe {<br />
-&nbsp; &nbsp; &nbsp; width: 100%;<br />
-&nbsp; &nbsp; &nbsp; max-width: 800px;<br />
-&nbsp; &nbsp; &nbsp; height: 450px;<br />
-&nbsp; &nbsp; &nbsp; border: none;<br />
-&nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
-&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 12px rgba(0,0,0,0.2);<br />
-&nbsp; &nbsp; }</p>
+  <script>
+    const apiKey = "ВАШ_API_КЛЮЧ"; // Вставь сюда свой YouTube API ключ
 
-<p>&nbsp; &nbsp; @media (max-width: 800px) {<br />
-&nbsp; &nbsp; &nbsp; .container {<br />
-&nbsp; &nbsp; &nbsp; &nbsp; flex-direction: column;<br />
-&nbsp; &nbsp; &nbsp; }<br />
-&nbsp; &nbsp; &nbsp; iframe {<br />
-&nbsp; &nbsp; &nbsp; &nbsp; height: 250px;<br />
-&nbsp; &nbsp; &nbsp; }<br />
-&nbsp; &nbsp; }<br />
-&nbsp; &lt;/style&gt;<br />
-&lt;/head&gt;<br />
-&lt;body&gt;</p>
+    const videoBlocks = {
+      blockAlykul: ["AOuj_1hr264", "xUqTq9UPnnk", "G2seyNojp8M", "GJKPy7FGR3U"],
+      blockAytmatov: ["gaK1s-agCNE", "yL8EMBMxjCA", "RJNZJZOEH5A", "Z4T_E_yuWdY"]
+    };
 
-<p>&nbsp; &lt;div class=&quot;container&quot;&gt;</p>
+    async function fetchVideoTitle(id) {
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${apiKey}`);
+      const data = await response.json();
+      if (data.items && data.items.length > 0) {
+        return data.items[0].snippet.title;
+      }
+      return "Нет названия";
+    }
 
-<p>&nbsp; &nbsp; &lt;!-- Первый блок: Алыкул Осмонов ырлары --&gt;<br />
-&nbsp; &nbsp; &lt;div class=&quot;block-wrapper&quot;&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;block-title&quot;&gt;Алыкул Осмонов ырлары&lt;/h2&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;div class=&quot;block&quot; id=&quot;blockAlykul&quot;&gt;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Видео подгружаются автоматически --&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />
-&nbsp; &nbsp; &lt;/div&gt;</p>
+    async function loadVideos() {
+      for (const [blockId, ids] of Object.entries(videoBlocks)) {
+        const container = document.getElementById(blockId);
+        for (const id of ids) {
+          const title = await fetchVideoTitle(id);
+          const card = document.createElement("div");
+          card.className = "video-card";
+          card.onclick = () => playVideo(id);
+          card.innerHTML = `
+            <img src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${title}">
+            <div>${title}</div>
+          `;
+          container.appendChild(card);
+        }
+      }
+    }
 
-<p>&nbsp; &nbsp; &lt;!-- Второй блок: Чынгыз Айтматов аудио китептери --&gt;<br />
-&nbsp; &nbsp; &lt;div class=&quot;block-wrapper&quot;&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;block-title&quot;&gt;Чынгыз Айтматов аудио китептери&lt;/h2&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;div class=&quot;block&quot; id=&quot;blockAytmatov&quot;&gt;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Видео подгружаются автоматически --&gt;<br />
-&nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />
-&nbsp; &nbsp; &lt;/div&gt;</p>
+    function playVideo(id) {
+      document.getElementById('videoPlayer').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+      window.scrollTo({ top: document.getElementById('videoPlayer').offsetTop - 20, behavior: 'smooth' });
+    }
 
-<p>&nbsp; &lt;/div&gt;</p>
+    loadVideos();
+  </script>
 
-<p>&nbsp; &lt;div class=&quot;player&quot;&gt;<br />
-&nbsp; &nbsp; &lt;iframe id=&quot;videoPlayer&quot; src=&quot;&quot; allowfullscreen&gt;&lt;/iframe&gt;<br />
-&nbsp; &lt;/div&gt;</p>
-
-<p>&nbsp; &lt;script&gt;<br />
-&nbsp; &nbsp; const apiKey = &quot;ВАШ_API_КЛЮЧ&quot;; // Вставь сюда свой YouTube API ключ</p>
-
-<p>&nbsp; &nbsp; const videoBlocks = {<br />
-&nbsp; &nbsp; &nbsp; blockAlykul: [&quot;AOuj_1hr264&quot;, &quot;xUqTq9UPnnk&quot;, &quot;G2seyNojp8M&quot;, &quot;GJKPy7FGR3U&quot;],<br />
-&nbsp; &nbsp; &nbsp; blockAytmatov: [&quot;gaK1s-agCNE&quot;, &quot;yL8EMBMxjCA&quot;, &quot;RJNZJZOEH5A&quot;, &quot;Z4T_E_yuWdY&quot;]<br />
-&nbsp; &nbsp; };</p>
-
-<p>&nbsp; &nbsp; async function fetchVideoTitle(id) {<br />
-&nbsp; &nbsp; &nbsp; const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&amp;id=${id}&amp;key=${apiKey}`);<br />
-&nbsp; &nbsp; &nbsp; const data = await response.json();<br />
-&nbsp; &nbsp; &nbsp; if (data.items &amp;&amp; data.items.length &gt; 0) {<br />
-&nbsp; &nbsp; &nbsp; &nbsp; return data.items[0].snippet.title;<br />
-&nbsp; &nbsp; &nbsp; }<br />
-&nbsp; &nbsp; &nbsp; return &quot;Нет названия&quot;;<br />
-&nbsp; &nbsp; }</p>
-
-<p>&nbsp; &nbsp; async function loadVideos() {<br />
-&nbsp; &nbsp; &nbsp; for (const [blockId, ids] of Object.entries(videoBlocks)) {<br />
-&nbsp; &nbsp; &nbsp; &nbsp; const container = document.getElementById(blockId);<br />
-&nbsp; &nbsp; &nbsp; &nbsp; for (const id of ids) {<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const title = await fetchVideoTitle(id);<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const card = document.createElement(&quot;div&quot;);<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; card.className = &quot;video-card&quot;;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; card.onclick = () =&gt; playVideo(id);<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; card.innerHTML = `<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;img src=&quot;https://img.youtube.com/vi/${id}/hqdefault.jpg&quot; alt=&quot;${title}&quot;&gt;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;${title}&lt;/div&gt;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.appendChild(card);<br />
-&nbsp; &nbsp; &nbsp; &nbsp; }<br />
-&nbsp; &nbsp; &nbsp; }<br />
-&nbsp; &nbsp; }</p>
-
-<p>&nbsp; &nbsp; function playVideo(id) {<br />
-&nbsp; &nbsp; &nbsp; document.getElementById(&#39;videoPlayer&#39;).src = &#39;https://www.youtube.com/embed/&#39; + id + &#39;?autoplay=1&#39;;<br />
-&nbsp; &nbsp; &nbsp; window.scrollTo({ top: document.getElementById(&#39;videoPlayer&#39;).offsetTop - 20, behavior: &#39;smooth&#39; });<br />
-&nbsp; &nbsp; }</p>
-
-<p>&nbsp; &nbsp; loadVideos();<br />
-&nbsp; &lt;/script&gt;</p>
-
-<p>&lt;/body&gt;<br />
-&lt;/html&gt;</p>
 </body>
 </html>
